@@ -1,0 +1,75 @@
+<html xmls:th="http://www.thymeleaf.org">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/form.css">
+        <br><br><br>
+    <title>Registrar</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="#" th:action="@{/register}" method="post" th:object="${userData}">
+            <div class="form-container">
+                <div class="form-header">
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <h2 class="big-title">Registrar</h2>
+                    <h3 class="small-title">como empleado</h3>
+                </div>
+                <div class="form-body">
+                    <label for="firstName">Nombre</label>
+                    <input type="text" name="firstName" id="firstName" placeholder="Nombre" th:field="*{firstName}">
+
+                    <label for="lastName">Apellidos</label>
+                    <input type="text" name="lastName" id="lastName" placeholder="Apellidos" th:field="*{lastName}">
+    
+                    <div class="input-group">
+                        <h2 class="field-title">Numero de celular</h2>
+                        
+                        <label for="phoneTitle">Titulo</label>
+                        <input type="text" name="phone" id="phoneTitle" placeholder="Titulo de celular" th:field="*{phoneName}">
+    
+                        <label for="phoneNumber">Celular</label>
+                        <input type="tel" name="phone" id="phoneNumber" placeholder="Celular" th:field="*{phoneNumber}">
+                    </div>
+
+
+                    <label for="birthdate">Fecha de cumpleaños</label>
+                    <input type="date" name="birthdate" id="birthdate" th:field="*{dateOfBirth}">
+
+                    <div class="input-group">
+                        <h2 class="field-title">Direccion de domicilio</h2>
+                        
+                        <label for="address-street">Direccion 1</label>
+                        <input type="text" name="addressLine" id="address-street" placeholder="Direccion" th:field="*{addressLine}">
+    
+                        <label for="address-apartment">Direccion 2</label>
+                        <input type="text" name="details" id="address-apartment" placeholder="Direccion" th:field="*{details}">
+                    </div>
+
+                    <label for="input-email">E-Mail</label>
+                    <input type="email" name="emailField" id="input-email" placeholder="E-Mail" th:field="*{email}">
+
+                    <label for="input-password">Contraseña</label>
+                    <input type="password" name="passwordField" id="input-password" placeholder="Contraseña" th:field="*{password}">
+
+                    <input type="submit" id="submitButton" value="Sign Up"/>
+                </div>
+                <div class="form-footer">
+                    <p class="alert">Este es un formulario de solicitud de información. Al completar este formulario, está solicitando una cuenta de empleado. Su autorización será asignada por los administradores</p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="/js/modal_utils.js"></script>
+    <script src="/js/signup.js"></script>
+</body>
+</html>

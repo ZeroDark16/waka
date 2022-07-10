@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ordenes</title>
+    
+        <link rel="stylesheet" href="/css/main.css" th:href="@{/css/main.css}">
+        <link rel="stylesheet" href="/css/orders.css">
+        <link rel="stylesheet" href="/css/modal.css">
+        <link rel="stylesheet" href="/css/cart.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="page-header" th:replace="fragments/general :: pageHeader(title=' / Orders', userData=${user})"/>
+            <div class="nav side-nav" th:replace="fragments/general :: sideNav"/>
+            
+            <div class="main">
+                <div class="tableWrapper">
+                    <h2>Ordenes</h2>
+                    <table>
+                        <tr>
+                            <th>
+                                <label onclick="window.location='/orders?sort=id'" class="row-label">Id de orden</label>
+                            </th>
+                            <th>
+                                <label onclick="window.location='/orders?sort=table'" class="row-label">Numero de mesa</label>
+                            </th>
+                            <th>
+                                <label onclick="window.location='/orders?sort=date'" class="row-label">Fecha</label>
+                            </th>
+                            <th>
+                                <label onclick="window.location='/orders?sort=price'" class="row-label">Precio</label>
+                            </th>
+                            <th>
+                                <label class="row-label">Conteo de items</label>
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tr th:each="order : ${orders}">
+                            <td>
+                                <p th:text="${order.orderId}"></p>
+                            </td>
+                            <td>
+                                <p th:text="${order.table.tableId}"></p>
+                            </td>
+                            <td>
+                                <p th:text="${#temporals.format(order.orderDate, 'dd-MM-yyyy HH:mm:ss')}"></p>
+                            </td>
+                            <td>
+                                <p th:text="${order.totalPrice}"></p>
+                            </td>
+                            <td>
+                                <p th:text="${#lists.size(order.items)}"></p>
+                            </td>
+                            <td>
+                                <a class="linkButton" th:href="'/api/order/'+${order.orderId+'/details'}">Detalles</a>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="result-detail" th:if="${totalCash}">
+                        <span>Total efectivo: </span>
+                        <span id="totalCash" th:text="${totalCash}"></span>
+                        <span id="price-unit">Soles</span>
+                    </div>
+                </div>
+                <div id="filterControls">
+                    <div class="filterBox">
+                        <h2>Filtrar por Intervalo de fechas</h2>
+                        <label class="filter-title">Desde</label>
+                        <input id="startDate" type="date">
+                        
+                        <label class="filter-title">a</label>
+                        <input id="endDate" type="date">
+                        
+                        <button id="filterByIntervalButton" onclick="filterByDateInterval()">Filtrar</button>
+                    </div>
+                    
+                    <div class="filterBox">
+                        <h2>Filtrar por Elemento que contiene</h2>
+                        <table>
+                            <tr>
+                                <th>
+                                    <label class="filter-title">Filtrar</label>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div th:unless="${#lists.size(items)} == 0" class="dropdown" id="itemList">
+                                        <span class="dropdown-text" id="itemName" th:text="${items[0].name}"></span>
+                                        <div class="dropdown-content">
+                                            <p class="dropdown-item" th:each="product : ${items}" th:text="${product.name}"></p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button id="filterByItemButton" onclick="filterByItem()">Filtrar</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/js/dropdownUtils.js" th:src="@{/js/dropdownUtils.js}"></script>
+        <script src="/js/modalUtils.js" th:src="@{/js/modalUtils.js}"></script>
+        <script src="/js/orders.js" th:src="@{/js/orderUtils.js}"></script>
+    </body>
+</html>

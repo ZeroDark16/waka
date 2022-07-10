@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div class="dropdown" th:fragment="dropdown(id, items)" th:id="${id}">
+            <span class="dropdown-text" id="dropdownText" th:text="${items[0]}"/>
+            <div class="dropdown-content" id="dropdownContent">
+                <p class="dropdown-item" th:each="item : ${items}" th:text="${item}"></p>
+            </div>
+        </div>
+    </body>
+</html>

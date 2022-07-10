@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url('https://scontent.fcja1-1.fna.fbcdn.net/v/t31.18172-8/10518852_809340379121996_6445238680645630298_o.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEmUj5F0jgjMTx1c_XBybUhkG-onRItcCGQb6idEi1wIQZaiGFxZA29gNpsZUzQ6JKRciZmrBOEuGWwQyDJftjC&_nc_ohc=V5e8WXBuA_kAX93n0gT&tn=W_86TKhgUwPsj8Tl&_nc_ht=scontent.fcja1-1.fna&oh=00_AT_tHtcpLFmbEC20Rkme7y-vC7tE-Tmlb7m8BAiPmNy_Fg&oe=62DAEA8A');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #626461;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #626461;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #626461;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}

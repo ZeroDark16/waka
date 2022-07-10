@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sin autorizacion</title>
+        
+        <link rel="stylesheet" href="/css/main.css" th:href="@{/css/main.css}">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="page-header" th:replace="fragments/general :: pageHeader(title=' / Error', userData=${user})"/>
+            <div style="display: block; padding: 0 30px;" class="main">
+                <br/>
+                <h1 style="padding: 30px">Error</h1>
+                <br/>
+                <h2>Tu cuenta aún no está asignada. Si cree que esto es un error, reúnase con su gerente.</h2>
+            </div>
+        </div>
+        <script src="/js/dropdownUtils.js"></script>
+    </body>
+</html>
